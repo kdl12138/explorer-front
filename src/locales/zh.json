@@ -1,0 +1,122 @@
+{
+  "global": {
+    "search": "搜索",
+    "price": "价格",
+    "block": "块",
+    "overview": "概况",
+    "difficulty": "难度",
+    "transactions": "交易",
+    "hash": "哈希",
+    "nonce": "Nonce",
+    "timestamp": "时间戳",
+    "from": "From",
+    "to": "To",
+    "gasUsed": "Gas Used",
+    "gasLimit": "Gas Limit",
+    "gasPrice": "Gas price",
+    "ago": " ago",
+    "success": "成功",
+    "fail": "失败",
+    "value": "值",
+    "balance": "余额",
+    "token": "通证",
+    "blocks": "块列表",
+    "and": "和",
+    "contract": "合约"
+  },
+  "nav": {
+    "home": "首页",
+    "blockchain": "区块链",
+    "allBlock": "查看所有块",
+    "allTxn": "查看所有交易"
+  },
+  "tips": {
+    "copyAddress": "复制到剪贴板",
+    "copied": "复制成功"
+  },
+  "index": {
+    "explorer": "区块链浏览器",
+    "quickLink": "快捷连接",
+    "marketCap": "市值",
+    "difficulty": "难度",
+    "rate": "哈希率",
+    "lastBlock": "最新块",
+    "lastBlocks": "最新块",
+    "transactions": "交易",
+    "miner": "矿工",
+    "allblock": "查看所有块",
+    "alltxn": "查看所有交易"
+  },
+  "block": {
+    "height": "块高度",
+    "minedBy": "区块开采者",
+    "reward": "块奖励",
+    "uncleReward": "叔块奖励",
+    "totaldiff": "总难度",
+    "size": "大小",
+    "extraData": "额外数据",
+    "pHash": "父哈希",
+    "sha3Un": "Sha3Uncles"
+  },
+  "txn": {
+    "detail": "交易详情",
+    "hash": "交易哈希",
+    "status": "状态",
+    "confirms": "块确认数",
+    "contract": "合同",
+    "txnfee": "交易费用",
+    "inputData": "Input Data",
+    "position": "位置"
+  },
+  "table": {
+    "txHash": "交易哈希",
+    "age": "Age",
+    "txfee": "矿工费",
+    "txn": "Txn",
+    "avgprice": "Avg.GasPrice",
+    "uncles": "Uncles", 
+    "miner": "矿工",
+    "reward": "奖励",
+    "vnsVal": "VnsValue",
+    "moreInfo": "更多信息",
+    "mined": "Mined",
+    "transfer": "Transfers",
+    "quantity": "数量",
+    "holder": "持有人数",
+    "supply": "总量",
+    "site": "官网"
+  },
+  "desc": {
+    "transactions": "笔交易",
+    "inBlock": "在这个块中",
+    "contractInternal": "笔合约交易",
+    "totalTxn": "总共查到{total}笔交易",
+    "forBlock": "For Block",
+    "totalBlock": "总共{total}个块",
+    "listTxn": "{length} transactions from a total of {total} transactions",
+    "interval": "在{interval}秒中"
+  },
+  "footer": {
+    "powerBy": "Powered by Vns",
+    "desc": "VNSBlock是针对Vns的区块链浏览器和分析平台，是去中心化的智能合约平台",
+    "company": "公司",
+    "about": "关于我们",
+    "ad": "广告",
+    "contact": "联系我们",
+    "service": "服务条款",
+    "community": "社区",
+    "apis": "开发者API",
+    "reddit": "Reddit论坛",
+    "knowledge": "知识库",
+    "comments": "Disqus Comments",
+    "social": "社交平台",
+    "twitter": "推特",
+    "facebook": "脸书",
+    "medium": "Medium",
+    "donate": "捐赠地址"
+  },
+  "page": {
+    "first": "第一页",
+    "last": "最后一页"
+  }
+}

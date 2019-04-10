@@ -1,0 +1,121 @@
+{
+  "global": {
+    "search": "Search",
+    "price": " price",
+    "block": "Block",
+    "overview": "Overview",
+    "difficulty": "difficulty",
+    "transactions": "Transactions",
+    "hash": "Hash",
+    "nonce": "Nonce",
+    "timestamp": "TimeStamp",
+    "from": "From",
+    "to": "To",
+    "gasUsed": "Gas Used",
+    "gasLimit": "Gas Limit",
+    "gasPrice": "Gas price",
+    "ago": " ago",
+    "success": "Success",
+    "fail": "Fail",
+    "value": "Value",
+    "balance": "Balance",
+    "token": "Token",
+    "blocks": "Blocks",
+    "and": " and ",
+    "contract": "Contract"
+  },
+  "nav": {
+    "home": "Home",
+    "blockchain": "Blockchain",
+    "allBlock": "View Blocks",
+    "allTxn": "View Txns"
+  },
+  "tips": {
+    "copyAddress": "Copy address to clipboard",
+    "copied": "Copied"
+  },
+  "index": {
+    "explorer": " Blockchain Explorer",
+    "quickLink": "Quick links",
+    "marketCap": "market cap",
+    "rate": "hash rate",
+    "lastBlock": "Latest Block",
+    "lastBlocks": "Latest Blocks",
+    "miner": "miner",
+    "allblock": "View All Blocks",
+    "alltxn": "View All Transactions"
+  },
+  "block": {
+    "height": "Block Height",
+    "minedBy": "Mined by",
+    "reward": "Block Reward",
+    "uncleReward": "Uncles Reward",
+    "totaldiff": "Total Difficulty",
+    "size": "Size",
+    "extraData": "Extra Data",
+    "pHash": "Parent Hash",
+    "sha3Un": "Sha3Uncles"
+  },
+  "txn": {
+    "detail": "Transaction Details",
+    "hash": "Transaction Hash",
+    "status": "Status",
+    "confirms": " Block Confirmations",
+    "contract": "Contract",
+    "txnfee": "Transaction Fee",
+    "inputData": "Input Data",
+    "position": "Position"
+  },
+  "table": {
+    "txHash": "TxHash",
+    "age": "Age",
+    "txfee": "TxFee",
+    "txn": "Txn",
+    "avgprice": "Avg.GasPrice",
+    "uncles": "Uncles",
+    "miner": "Miner",
+    "reward": "Reward",
+    "vnsVal": "VnsValue",
+    "moreInfo": "More Info",
+    "mined": "Mined",
+    "transfer": "Transfers",
+    "quantity": "quantity",
+    "holder": "Holders",
+    "supply": "Total Supply",
+    "decimals": "Decimals",
+    "site": "Official Site"
+  },
+  "desc": {
+    "transactions": "Transactions",
+    "inBlock": " in this block",
+    "contractInternal": " contract internal transactions",
+    "totalTxn": "A total of {total} transactions found",
+    "forBlock": "For Block",
+    "totalBlock": "Total of {total} block",
+    "listTxn": "{length} transactions from a total of {total} transactions",
+    "interval": " in {interval} secs"
+  },
+  "footer": {
+    "powerBy": "Powered by Vns",
+    "desc": "VNSBlock is a Block Explorer and Analytics Platform for Vns, a decentralized smart contracts platform",
+    "company": "Company",
+    "about": "About Us",
+    "ad": "Advertise",
+    "contact": "Contact Us",
+    "service": "Terms of Service",
+    "community": "Community",
+    "apis": "Developer APIs",
+    "reddit": "Reddit Forum",
+    "knowledge": "Knowledge Base",
+    "comments": "Disqus Comments",
+    "social": "Social Links",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "medium": "Medium",
+    "donate": "Donations"
+  },
+  "page": {
+    "first": "First",
+    "last": "Last"
+  }
+}
