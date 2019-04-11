@@ -22,17 +22,23 @@
     "token": "Token",
     "blocks": "Blocks",
     "and": " and ",
-    "contract": "Contract"
+    "contract": "Contract",
+    "rank": "Rank",
+    "more": "More",
+    "noData": "No data",
+    "supply": "Circulating Supply"
   },
   "nav": {
     "home": "Home",
     "blockchain": "Blockchain",
     "allBlock": "View Blocks",
-    "allTxn": "View Txns"
+    "allTxn": "View Txns",
+    "rank": "Rank"
   },
   "tips": {
     "copyAddress": "Copy address to clipboard",
-    "copied": "Copied"
+    "copied": "Copied",
+    "showQr": "Click to view QR Code"
   },
   "index": {
     "explorer": " Blockchain Explorer",
@@ -50,11 +56,13 @@
     "minedBy": "Mined by",
     "reward": "Block Reward",
     "uncleReward": "Uncles Reward",
+    "totalReward": "Total Reward",
     "totaldiff": "Total Difficulty",
     "size": "Size",
     "extraData": "Extra Data",
     "pHash": "Parent Hash",
-    "sha3Un": "Sha3Uncles"
+    "sha3Un": "Sha3Uncles",
+    "blocks": " Blocks"
   },
   "txn": {
     "detail": "Transaction Details",
@@ -65,6 +73,10 @@
     "txnfee": "Transaction Fee",
     "inputData": "Input Data",
     "position": "Position"
+  },
+  "rank": {
+    "assets": "Asset ranking",
+    "miners": "Miners list"
   },
   "table": {
     "txHash": "TxHash",
@@ -83,7 +95,9 @@
     "holder": "Holders",
     "supply": "Total Supply",
     "decimals": "Decimals",
-    "site": "Official Site"
+    "site": "Official Site",
+    "address": "Address",
+    "asset": "Asset"
   },
   "desc": {
     "transactions": "Transactions",

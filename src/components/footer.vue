@@ -31,14 +31,56 @@
     </div>
     <div class="donate w1200">
       <router-link to="">VNSBlock © 2019 (B)</router-link>
-      <router-link to="/address/0x7a7aa1489a3d8dc6e4538bf8e79167acaefc90fd">{{$t('footer.donate')}} <span>0x7a7aa1489a3d8dc6e4538bf8e79167acaefc90fd</span></router-link>
+      <router-link to="/address/0x7a7aa1489a3d8dc6e4538bf8e79167acaefc90fd">{{$t('footer.donate')}} 
+        <span id="id">0x7a7aa1489a3d8dc6e4538bf8e79167acaefc90fd</span>
+        <div class="iconBg">
+          <tips :text="tipText" :show="showTip"></tips>
+          <i class="fa fa-copy id" @mouseenter="showTip=true" @mouseleave="resetTip" data-clipboard-target='#id'></i>
+        </div>
+        <div class="iconBg">
+          <tips :text="tipQrText" :show="showQrTip"></tips>
+          <qrcode :show='showQr' :address='`0x7a7aa1489a3d8dc6e4538bf8e79167acaefc90fd`'></qrcode>
+          <i class="fa fa-qrcode" @click="showQr=true" @mouseenter="showQrTip=true" @mouseleave="showQrTip=false"></i>
+        </div>
+      </router-link>
     </div>
   </section>
 </template>
 
 <script>
+import Clipboard from 'clipboard'
+import tips from "@/components/tips.vue"
+import qrcode from "@/components/qrcode.vue"
+import bus from "@/assets/js/bus.js"
+
 export default {
-  name: 'foot'
+  name: 'foot',
+  data () {
+    return {
+      tipText: this.$t('tips.copyAddress'),
+      showTip: false,
+      tipQrText: this.$t('tips.showQr'),
+      showQr: false,
+      showQrTip: false,
+    }
+  },
+  components: {
+    tips,
+    qrcode
+  },
+  mounted () {
+    var clip = new Clipboard('.id')
+    clip.on('success', () => {
+      this.tipText = this.$t('tips.copied')
+    })
+    bus.$on('hideQr', () => this.showQr = false)
+  },
+  methods: {
+    resetTip () {
+      this.showTip = false
+      this.tipText = this.$t('tips.copyAddress')
+    }
+  }
 }
 </script>
 
@@ -112,6 +154,19 @@ export default {
         span {
           color: hsla(0,0%,100%,.7);
         }
+      }
+      .iconBg {
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+        border-radius: 13px;
+        background: rgba(119,131,143,.1);
+        margin-left: 5px;
+        position: relative;
       }
     }
   }

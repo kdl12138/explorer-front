@@ -1,11 +1,7 @@
 <template>
-  <section id="blocks" class="w1200">
-    <h3>{{$t('global.blocks')}}</h3>
+  <section id="assets" class="w1200">
+    <h3>{{$t('rank.miners')}}</h3>
     <div class="box">
-      <div class="table_desc">
-        <p>{{$t('global.block')}} #{{blocks[blocks.length - 1] && blocks[blocks.length - 1].number}} {{$t("global.to")}} #{{blocks[0] && blocks[0].number}} ({{$t('desc.totalBlock', {total: total})}})</p>
-        <page :total='size' :index='curIndex' url='/blocks' class="mobile"></page>
-      </div>
       <div class="wrap">
         <div class="loading" v-if="blocks.length===0 && !noRecord">
           <img src="~@/assets/img/loading.gif">
@@ -16,49 +12,29 @@
         <table cellpadding="0" v-else>
           <thead>
             <tr>
-              <th>{{$t("global.block")}}</th>
-              <th>{{$t("table.age")}}</th>
-              <th>{{$t("table.txn")}}</th>
-              <th>{{$t("table.uncles")}}</th>
-              <th>{{$t("table.miner")}}</th>
-              <th>{{$t("global.gasUsed")}}</th>
-              <th>{{$t("global.gasLimit")}}</th>
-              <th>{{$t("table.avgprice")}}</th>
-              <th>{{$t("table.reward")}}</th>
+              <th>{{$t("global.rank")}}</th>
+              <th>{{$t("table.address")}}</th>
+              <th>{{$t("block.reward")}}</th>
+              <th>{{$t("block.uncleReward")}}</th>
+              <th>{{$t("block.totalReward")}}</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(item, index) in blocks" :key='index'>
               <td>
-                <router-link :to="`/block/${item.number}`">{{item.number}}</router-link>
+                <span>{{ item.rank }}</span>
               </td>
               <td>
-                <span>{{ item.timestamp | formatAgo}}{{$t("global.ago")}}</span>
+                <router-link :to="`/address/${item.address}`">{{item.address}}</router-link>
               </td>
               <td>
-                <router-link class="hashLink" :to="`/txs/${item.hash}`">{{item.txn}}</router-link>
+                <span>{{item.blockReward}} Vns</span>
               </td>
               <td>
-                <span>{{item.uncles}}</span>
+                <span>{{item.uncleReward}} Vns</span>
               </td>
               <td>
-                <router-link class="hashM" :to="`/address/${item.miner}`">{{item.miner}}</router-link>
-              </td>
-
-              <td>
-                <p class="dbLine">{{ item.gasUsed }} ({{ item.gasUsed * 100/item.gasLimit | fixNum(2) }}%)</p>
-                <div class="perBg">
-                  <div class="per" :style="{width: item.gasUsed * 100/item.gasLimit +'%'}"></div>
-                </div>
-              </td>
-              <td>
-                <span>{{ item.gasLimit }}</span>
-              </td>
-              <td>
-                <span>{{item.avgGasPrice | diliver(18)}}</span>
-              </td>
-              <td>
-                <span>{{item.reward}} Vns</span>
+                <span>{{item.totalReward}} Vns</span>
               </td>
             </tr>
           </tbody>
@@ -70,7 +46,7 @@
 
 <script>
 export default {
-  name: 'blocks',
+  name: 'assets',
   data () {
     return {
       blocks: [],
@@ -87,29 +63,18 @@ export default {
     getData () {
       this.$http({
         method: 'post',
-        url: '/api/vns/block/list',
+        url: '/api/vns/stat/rankMiner',
         dataType: 'json',
         data: {
           'page': this.curIndex,
-          'limit': '50'
+          'limit': 50
         }
       }).then(res => {
-        this.total = res.data.result.total
-        this.size = res.data.result.size
-        this.blocks = res.data.result.blocks
+        this.blocks = res.data.result.ranks
         if (this.blocks.length === 0) {
-          this.noRecord1 = true
+          this.noRecord = true
         }
       })
-    }
-  },
-  watch: {
-    '$route' (val) {
-      // console.log(val)
-      if (val.query.page !== this.curIndex) {
-        this.curIndex = val.query.page
-        this.getData()
-      }
     }
   }
 }
@@ -121,22 +86,18 @@ export default {
     line-height: 52px;
     font-size: 20px;
     margin-top: 4px;
-    span {
-      color: #77838f;
-      font-size: 14px;
-    }
   }
   .box {
     padding: 10px;
   }
-  .table_desc {
-    display: flex;
-    margin-bottom: 15px;
-    p {
-      flex: 1;
-      font-size: 13px;
-    }
-  }
+  // .table_desc {
+  //   display: flex;
+  //   margin-bottom: 15px;
+  //   p {
+  //     flex: 1;
+  //     font-size: 13px;
+  //   }
+  // }
   table {
     width: 100%;
     th {
@@ -175,7 +136,6 @@ export default {
   }
   @media (max-width: 1200px) {
     .wrap {
-      // min-width: 800px;
       width: 100%;
       overflow-x: scroll;
     }

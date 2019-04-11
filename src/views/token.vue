@@ -9,7 +9,13 @@
           <page class="mobile" :total='pages' url="/token" :index='curIndex'></page>
         </div>
         <div class="wrap">
-          <table>
+          <div class="loading" v-if="tokens.length===0 && !noRecord">
+            <img src="~@/assets/img/loading.gif">
+          </div>
+          <div class="noRecord" v-else-if="noRecord">
+            <p>{{$t('global.noData')}}</p>
+          </div>
+          <table cellpadding="0" v-else>
             <thead>
               <th>#</th>
               <th>Token</th>
@@ -78,7 +84,8 @@ export default {
       total: 1,
       size: 1,
       pages: 1,
-      curIndex: 1
+      curIndex: 1,
+      noRecord: false
     }
   },
   created () {
@@ -99,6 +106,9 @@ export default {
         this.tokens = result.contracts
         this.pages = result.size
         this.total = result.total
+        if (this.tokens.length === 0) {
+          this.noRecord = true
+        }
       })
     }
   },

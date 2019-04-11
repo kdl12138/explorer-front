@@ -144,6 +144,47 @@ th,td {
     line-height: 20px;
   }
 }
+.noRecord {
+  width: 100%;
+  height: 100px;
+  p {
+    line-height: 100px;
+    text-align: center;
+    color: #333333;
+  }
+}
+.dialog {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  .mask {
+    position: absolute;
+    z-index: 101;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.5)
+  }
+  .diaCon {
+    position: absolute;
+    z-index: 102;
+    left: 50%;
+    top: 50%;
+    .close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      display: block;
+      font-size: 20px;
+      color: #000000;
+      cursor: pointer;
+    }
+  }
+}
 
 @media (max-width: 1200px) {
   .w1200 {

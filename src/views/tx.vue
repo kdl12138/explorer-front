@@ -1,14 +1,15 @@
 <template>
   <section id='tx' class="w1200">
     <h3>{{$t('txn.detail')}}</h3>
-    <div class="box">
+    <div class="box wrap">
       <ul class="hd clearfix">
         <li v-for="(item, index) in heads" :key="item" @click="curIndex=index">{{item}}</li>
       </ul>
-      <div class="loadingBox" v-if="!tx.hash">
-        <div class="loading">
-          <img src="~@/assets/img/loading.gif">
-        </div>
+      <div class="loading" v-if="!tx.hash && !noRecord">
+        <img src="~@/assets/img/loading.gif">
+      </div>
+      <div class="noRecord" v-else-if="noRecord">
+        <p>{{$t('global.noData')}}</p>
       </div>
       <div class="bd" v-else>
         <div class="detailBox">
@@ -66,7 +67,7 @@
         <div class="detailBox">
           <p class="name">{{$t('global.to')}}:</p>
           <p class="detail">
-            <span><pre v-if="tx.inputData !== '0x'">{{$t('txn.inputData')}} </pre><router-link id="to" :to="`/address/${tx.to}`">{{tx.to}}</router-link>
+            <span><pre v-if="tx.inputData !== '0x'">{{$t('global.contract')}} </pre><router-link id="to" :to="`/address/${tx.to}`">{{tx.to}}</router-link>
               <div class="tips rel" v-if="tx.to">
                 <tips :text="tipText" :show="showTip2" :tipOffset="true"></tips>
                 <i class="fa fa-copy ml5 to" @mouseenter="showTip2=true" @mouseleave="resetTip" data-clipboard-target='#to'></i>
@@ -137,7 +138,8 @@ export default {
       tipText: this.$t('tips.copyAddress'),
       showTip: false,
       showTip1: false,
-      showTip2: false
+      showTip2: false,
+      noRecord: false
     }
   },
   components: {
@@ -176,6 +178,9 @@ export default {
         dataType: 'json'
       }).then(res => {
         this.tx = res.data.result.txn
+        if (!this.tx.hash) {
+          this.noRecord = true
+        }
       })
     }
   },

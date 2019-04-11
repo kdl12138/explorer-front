@@ -15,6 +15,9 @@
               <p><router-link to="/txs">{{$t('nav.allTxn')}}</router-link></p>
             </div>
           </li>
+          <li>
+            <router-link class="more" to="/rank">{{$t('nav.rank')}}</router-link>
+          </li>
           <li @mouseenter="handleMouse('showLang',true)" @mouseleave="handleMouse('showLang',false)">
             <span class="more" @click="showLang=!showLang">{{language}}<i class="fa fa-angle-down"></i></span>
             <div class="dropmenu lang box" v-if="showLang">

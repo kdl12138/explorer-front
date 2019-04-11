@@ -6,6 +6,11 @@
         <tips :text="tipText" :show="showTip"></tips>
         <i class="fa fa-copy id" @mouseenter="showTip=true" @mouseleave="resetTip" data-clipboard-target='#id'></i>
       </div>
+      <div class="iconBg">
+        <tips :text="tipQrText" :show="showQrTip"></tips>
+        <qrcode :show='showQr' :address='id'></qrcode>
+        <i class="fa fa-qrcode" @click="showQr=true" @mouseenter="showQrTip=true" @mouseleave="showQrTip=false"></i>
+      </div>
     </h3>
     <div class="overview">
       <div class="box">
@@ -35,7 +40,7 @@
           <li>
             <p>{{$t('table.mined')}}:</p>
             <div v-if="minedBlocks || minedUncles">
-              <span v-if="minedBlocks">{{minedBlocks}} {{$t("global.blocks")}}</span>
+              <span v-if="minedBlocks">{{minedBlocks}}{{$t("block.blocks")}}</span>
               <span v-if="minedBlocks && minedUncles">{{$t("global.and")}}</span>
               <span v-if="minedUncles">{{minedUncles}}{{$t('table.uncles')}}</span>
             </div>
@@ -53,8 +58,11 @@
           <page :total='size' :index='index' :url='`/address/${id}`' class="mobile"></page>        
         </div>
         <div class="wrap">
-          <div class="loading" v-if="txs.length===0">
+          <div class="loading" v-if="txs.length===0 && !noRecord">
             <img src="~@/assets/img/loading.gif">
+          </div>
+          <div class="noRecord" v-else-if="noRecord">
+            <p>{{$t('global.noData')}}</p>
           </div>
           <table cellpadding="0" v-else>
             <thead>
@@ -147,6 +155,8 @@
 <script>
 import Clipboard from 'clipboard'
 import tips from "@/components/tips.vue"
+import qrcode from "@/components/qrcode.vue"
+import bus from "@/assets/js/bus.js"
 
 export default {
   name: 'myAddress',
@@ -167,11 +177,16 @@ export default {
       size: 1,
       currency: '',
       tipText: this.$t('tips.copyAddress'),
-      showTip: false
+      showTip: false,
+      tipQrText: this.$t('tips.showQr'),
+      showQr: false,
+      showQrTip: false,
+      noRecord: false
     }
   },
   components: {
-    tips
+    tips,
+    qrcode
   },
   created () {
     this.id = this.$route.params.id
@@ -184,6 +199,7 @@ export default {
     clip.on('success', () => {
       this.tipText = this.$t('tips.copied')
     })
+    bus.$on('hideQr', () => this.showQr = false)
   },
   methods: {
     resetTip () {
@@ -218,6 +234,9 @@ export default {
         this.txs = address.txns
         this.total = address.total
         this.size = address.size
+        if (this.blocks.length === 0) {
+          this.noRecord = true
+        }
       })
     },
     getCurrency () {
@@ -353,7 +372,7 @@ export default {
     }
   }
   .wrap {
-    min-height: 400px;
+    min-height: 200px;
     position: relative;
   }
 

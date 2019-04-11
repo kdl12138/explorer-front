@@ -7,8 +7,11 @@
         <page class="mobile" :total='pages' :url="`${id ? `/txs/${id}` : '/txs'}`" :index='curIndex'></page>
       </div>
       <div class="wrap">
-        <div class="loading" v-if="txs.length===0">
+        <div class="loading" v-if="txs.length===0 && !noRecord">
           <img src="~@/assets/img/loading.gif">
+        </div>
+        <div class="noRecord" v-else-if="noRecord">
+          <p>{{$t('global.noData')}}</p>
         </div>
         <table cellpadding="0" v-else>
           <thead>
@@ -63,7 +66,8 @@ export default {
       txs: [],
       pages: 1,
       total: 0,
-      curIndex: 1
+      curIndex: 1,
+      noRecord: false
     }
   },
   created () {
@@ -105,6 +109,9 @@ export default {
       this.txs = res.data.result.txns
       this.total = res.data.result.total
       this.pages = res.data.result.size
+      if (this.txs.length === 0) {
+        this.noRecord = true
+      }
     }
   },
   watch: {
@@ -164,7 +171,7 @@ export default {
     }
   }
   .wrap {
-    min-height: 400px;
+    min-height: 200px;
     position: relative;
   }
   @media (max-width: 1200px) {

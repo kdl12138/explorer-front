@@ -8,6 +8,9 @@
           <img src="~@/assets/img/loading.gif">
         </div>
       </div>
+      <!-- <div class="noRecord" v-else-if="noRecord">
+        <p>{{$t('global.noData')}}</p>
+      </div> -->
       <div class="infos" v-else>
         <div class="detailBox">
           <p class="name">{{$t('block.height')}}:</p>
