@@ -1,6 +1,6 @@
 <template>
   <section id='address' class="w1200">
-    <h3>Token <span>{{info.name}}</span></h3>
+    <h3>{{$t('global.token')}} <span>{{info.name}}</span></h3>
     <div class="overview">
       <div class="box">
         <p class="title">{{$t('global.overview')}} <span>[VRC-20]</span></p>
@@ -17,7 +17,7 @@
             </div>
           </li>
           <li>
-            <p>{{$t('table.holder')}}:</p>
+            <p>{{$t('global.holder')}}:</p>
             <div>{{info.holders}}</div>
           </li>
           <li>
@@ -93,46 +93,6 @@
             </tbody>
           </table>
         </div>
-      </div>
-      <div class="bd" v-else>
-        <div class="table_desc">
-          <p>Latest 25 ERC-20 Token Transfer Events [<router-link to="">Show More</router-link>]</p>
-        </div>
-        <table cellpadding="0">
-          <thead>
-            <tr>
-              <th>TxHash</th>
-              <th>Age</th>
-              <th>From</th>
-              <th>To</th>
-              <th>Value</th>
-              <th>Token</th>
-            </tr>
-          </thead>
-          <tbody class="none">
-            <tr v-for="item in tokens" :key='item.address'>
-              <td>
-                <router-link :to="`/txn/${item.txhash}`" class="hashLink">{{item.txhash}}</router-link>
-              </td>
-              <td>
-                <span class="time">{{item.timestamp | formatAgo}} ago</span>
-              </td>
-              <td>
-                <span class="hashLink from">{{item.from}}</span>
-                <div class="dir fr" :class="{'out': item.io === 'out', 'in': item.io === 'in'}" v-if="item.io==='out'">{{item.io | upper}}</div>
-              </td>
-              <td>
-                <router-link :to="`/address/${item.to}`" class="hashLink to">{{item.to}}</router-link>
-              </td>
-              <td>
-                <span>10.000</span>
-              </td>
-              <td>
-                <span>ERC-20(ILT)</span>
-              </td>
-            </tr>
-        </tbody>
-        </table>
       </div>
     </div>
   </section>

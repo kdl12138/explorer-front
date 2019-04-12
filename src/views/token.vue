@@ -1,11 +1,11 @@
 <template>
   <section id="token" class="w1200">
-    <h3>Token Tracker</h3>
+    <h3>{{$t('token.tracker')}}</h3>
     <div class="box">
-      <p class="title">Vns Token Market Capitalization</p>
+      <p class="title">{{$t('token.cap')}}</p>
       <div class="bd">
         <div class="table_desc">
-          <p>A total of {{total}} transactions found</p>
+          <p>{{$t('token.totalToken', {total: total})}}</p>
           <page class="mobile" :total='pages' url="/token" :index='curIndex'></page>
         </div>
         <div class="wrap">
@@ -18,12 +18,12 @@
           <table cellpadding="0" v-else>
             <thead>
               <th>#</th>
-              <th>Token</th>
-              <th><span>Price</span></th>
-              <th><span>Change (%)</span></th>
-              <th><span>Volume (24H)</span></th>
-              <th><span>Market Cap</span></th>
-              <th><span>Holders</span></th>
+              <th>{{$t('global.token')}}</th>
+              <th><span>{{$t('global.price')}}</span></th>
+              <th><span>{{$t('table.change')}}(%)</span></th>
+              <th><span>{{$t('table.volume')}}(24H)</span></th>
+              <th><span>{{$t('index.marketCap')}}</span></th>
+              <th><span>{{$t('global.holder')}}</span></th>
             </thead>
             <tbody>
               <tr v-for="(token, index) in tokens" :key="index">

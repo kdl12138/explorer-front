@@ -418,7 +418,7 @@ export default {
     h3 {
       p {
         font-size: 12px;
-        max-width: 240px;
+        max-width: 200px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

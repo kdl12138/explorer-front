@@ -186,6 +186,12 @@ th,td {
   }
 }
 
+@media (min-width: 1200px) {
+  .w1200 {
+    width: 1200px;
+  }
+}
+
 @media (max-width: 1200px) {
   .w1200 {
     width: 96%;

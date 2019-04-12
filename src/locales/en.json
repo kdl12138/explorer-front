@@ -1,7 +1,7 @@
 {
   "global": {
     "search": "Search",
-    "price": " price",
+    "price": " Price",
     "block": "Block",
     "overview": "Overview",
     "difficulty": "difficulty",
@@ -43,7 +43,7 @@
   "index": {
     "explorer": " Blockchain Explorer",
     "quickLink": "Quick links",
-    "marketCap": "market cap",
+    "marketCap": "market Cap",
     "rate": "hash rate",
     "lastBlock": "Latest Block",
     "lastBlocks": "Latest Blocks",
@@ -97,7 +97,9 @@
     "decimals": "Decimals",
     "site": "Official Site",
     "address": "Address",
-    "asset": "Asset"
+    "asset": "Asset",
+    "change": "Change",
+    "volume": "Volume"
   },
   "desc": {
     "transactions": "Transactions",
@@ -108,6 +110,11 @@
     "totalBlock": "Total of {total} block",
     "listTxn": "{length} transactions from a total of {total} transactions",
     "interval": " in {interval} secs"
+  },
+  "token": {
+    "tracker": "Token Tracker",
+    "cap": "Vns Token Market Capitalization",
+    "totalToken": "A total of {total} tokens found"
   },
   "footer": {
     "powerBy": "Powered by Vns",

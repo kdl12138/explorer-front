@@ -42,7 +42,7 @@
           <div class="detail">
             <p class="home_title"><span class="fr">{{$t('global.supply') | upper}}</span>{{$t('index.marketCap') | upper}}</p>
             <div class="con">
-              <p><router-link to="" class="fr"><span class="lastBlock">{{ currency.current_supply }} Vns</span></router-link></p>
+              <p><router-link to="" class="fr"><span class="lastBlock">{{ 209 * latestBlock }} Vns</span></router-link></p>
               <p><router-link to="" class="lastBlock">${{ currency.market_cap_usd | diliver(6) | fixNum(4)}} Million</router-link></p>
             </div>
           </div>
@@ -132,7 +132,7 @@
                   </div>
                 </div>
                 <div class="flex2">
-                  <div class="fee">{{ +item.value | fixNum(4)}} Vns</div>
+                  <div class="fee">{{ +item.value | fixNum(fixNum)}} Vns</div>
                   <p>From <router-link class="hashLink" :to="`/address/${item.from}`">{{ item.from }}</router-link></p>
                   <p>To <router-link class="hashLink" :to="`/address/${item.to}`">{{ item.to }}</router-link></p>
                 </div>
@@ -164,7 +164,9 @@ export default {
       currency: {},
       showRes: false,
       noRecord1: false,
-      noRecord2: false
+      noRecord2: false,
+      latestBlock: 0,
+      fixNum: 4
     }
   },
   components: {
@@ -179,9 +181,12 @@ export default {
       this.txns.splice()
     }, 1000);
   },
-  // mounted () {
-  //   bus.$on('refresh', () => this.init())
-  // },
+  mounted () {
+    var w = document.body.clientWidth
+    if (w < 414) {
+      this.fixNum = 2
+    }
+  },
   methods: {
     init () {
       // console.log(1)
@@ -207,6 +212,7 @@ export default {
         dataType: 'json',
       }).then((res) => {
         this.blocks = res.data.result.blocks
+        this.latestBlock = this.blocks[0].number
         if (this.blocks.length === 0) {
           this.noRecord1 = true
         }
@@ -257,6 +263,7 @@ export default {
         this.lastData.latestBlock = block.number
         delete block.txns
         this.blocks.unshift(block)
+        this.latestBlock = this.blocks[0].number
         if (this.blocks.length > 30) {
           this.blocks.splice(30, this.blocks.length - 30)
         }
@@ -282,12 +289,6 @@ export default {
         }
       })
     }
-  },
-  watch: {
-    // search (val, oldVal) {
-    //   if (!val || val === oldVal) return
-    //   this.getSearch(val)
-    // }
   }
 }
 </script>
