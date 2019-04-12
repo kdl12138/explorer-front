@@ -22,17 +22,23 @@
     "token": "通证",
     "blocks": "块列表",
     "and": "和",
-    "contract": "合约"
+    "contract": "合约",
+    "rank": "名次",
+    "more": "更多",
+    "noData": "暂无数据",
+    "supply": "流通量"
   },
   "nav": {
     "home": "首页",
     "blockchain": "区块链",
     "allBlock": "查看所有块",
-    "allTxn": "查看所有交易"
+    "allTxn": "查看所有交易",
+    "rank": "排行榜"
   },
   "tips": {
     "copyAddress": "复制到剪贴板",
-    "copied": "复制成功"
+    "copied": "复制成功",
+    "showQr": "点击查看二维码"
   },
   "index": {
     "explorer": "区块链浏览器",
@@ -52,11 +58,13 @@
     "minedBy": "区块开采者",
     "reward": "块奖励",
     "uncleReward": "叔块奖励",
+    "totalReward": "总奖励",
     "totaldiff": "总难度",
     "size": "大小",
     "extraData": "额外数据",
     "pHash": "父哈希",
-    "sha3Un": "Sha3Uncles"
+    "sha3Un": "Sha3Uncles",
+    "blocks": "个块"
   },
   "txn": {
     "detail": "交易详情",
@@ -68,13 +76,17 @@
     "inputData": "Input Data",
     "position": "位置"
   },
+  "rank": {
+    "assets": "资产排行榜",
+    "miners": "矿工排行榜"
+  },
   "table": {
     "txHash": "交易哈希",
     "age": "Age",
     "txfee": "矿工费",
     "txn": "Txn",
     "avgprice": "Avg.GasPrice",
-    "uncles": "Uncles", 
+    "uncles": "叔块", 
     "miner": "矿工",
     "reward": "奖励",
     "vnsVal": "VnsValue",
@@ -84,7 +96,9 @@
     "quantity": "数量",
     "holder": "持有人数",
     "supply": "总量",
-    "site": "官网"
+    "site": "官网",
+    "address": "地址",
+    "asset": "资产"
   },
   "desc": {
     "transactions": "笔交易",

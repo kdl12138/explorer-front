@@ -54,8 +54,11 @@
           <page :total='size' :index='index' :url='`/token/${id}`' class="mobile"></page>        
         </div>
         <div class="wrap">
-          <div class="loading" v-if="transfers.length===0">
+          <div class="loading" v-if="transfers.length===0 && !noRecord">
             <img src="~@/assets/img/loading.gif">
+          </div>
+          <div class="noRecord" v-else-if="noRecord">
+            <p>{{$t('global.noData')}}</p>
           </div>
           <table cellpadding="0" v-else>
             <thead>
@@ -71,7 +74,7 @@
               <tr v-for="item in transfers" :key='item.hash'>
                 <td>
                   <i class="fa fa-exclamation-circle warn" v-if="item.status==='0'"></i>
-                  <router-link :to="`/tx/${item.hash}`" class="hashLink">{{item.hash}}</router-link>
+                  <router-link :to="`/txn/${item.hash}`" class="hashLink">{{item.hash}}</router-link>
                 </td>
                 <td>
                   <span class="time">{{item.t | formatAgo}}{{$t("global.ago")}}</span>
@@ -150,7 +153,8 @@ export default {
       index: 1,
       total: 1,
       size: 1,
-      currency: ''
+      currency: '',
+      noRecord: false
     }
   },
   created () {
@@ -188,6 +192,9 @@ export default {
         this.transfers = result.transfers
         this.total = result.total
         this.size = result.size
+        if (this.transfers.length === 0) {
+          this.noRecord = true
+        }
       })
     },
     getCurrency () {
@@ -318,7 +325,7 @@ export default {
     }
   }
   .wrap {
-    min-height: 400px;
+    min-height: 200px;
     position: relative;
   }
 

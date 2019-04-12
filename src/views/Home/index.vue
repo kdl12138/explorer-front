@@ -40,10 +40,11 @@
         <div class="block">
           <figure><img src="https://etherscan.io/images/svg/icons/icon-8.svg" /></figure>
           <div class="detail">
-            <p class="home_title">{{$t('index.marketCap') | upper}}</p>
-            <router-link to="" class="con">
-              <span class="worth">${{ currency.market_cap_usd | diliver(6) | fixNum(4)}} Million</span>
-            </router-link>
+            <p class="home_title"><span class="fr">{{$t('global.supply') | upper}}</span>{{$t('index.marketCap') | upper}}</p>
+            <div class="con">
+              <p><router-link to="" class="fr"><span class="lastBlock">{{ currency.current_supply }} Vns</span></router-link></p>
+              <p><router-link to="" class="lastBlock">${{ currency.market_cap_usd | diliver(6) | fixNum(4)}} Million</router-link></p>
+            </div>
           </div>
         </div>
         <hr class="mobile" />
@@ -82,8 +83,11 @@
       <div class="blockList box fl">
         <h3>{{$t('index.lastBlocks')}}</h3>
         <div class="scrollBox">
-          <div class="loading" v-if="blocks.length===0">
+          <div class="loading" v-if="blocks.length===0 && !noRecord1">
             <img src="~@/assets/img/loading.gif">
+          </div>
+          <div class="noRecord" v-else-if="noRecord1">
+            <p>{{$t('global.noData')}}</p>
           </div>
           <virtualList :size="64" :remain="6" v-else>
             <ul class="lists">
@@ -111,8 +115,11 @@
       <div class="transactionlist box fr">
         <h3>{{$t('global.transactions')}}</h3>
         <div class="scrollBox">
-          <div class="loading" v-if="txns.length===0">
+          <div class="loading" v-if="txns.length===0 && !noRecord2">
             <img src="~@/assets/img/loading.gif">
+          </div>
+          <div class="noRecord" v-else-if="noRecord2">
+            <p>{{$t('global.noData')}}</p>
           </div>
           <virtualList :size="64" :remain="6" v-else>
             <ul class="lists">
@@ -155,7 +162,9 @@ export default {
       ws: null,
       searchRes: [],
       currency: {},
-      showRes: false
+      showRes: false,
+      noRecord1: false,
+      noRecord2: false
     }
   },
   components: {
@@ -198,6 +207,9 @@ export default {
         dataType: 'json',
       }).then((res) => {
         this.blocks = res.data.result.blocks
+        if (this.blocks.length === 0) {
+          this.noRecord1 = true
+        }
       })
     },
     getTxn () {
@@ -207,6 +219,9 @@ export default {
         dataType: 'json',
       }).then((res) => {
         this.txns = res.data.result.txns
+        if (this.txns.length === 0) {
+          this.noRecord2 = true
+        }
       })
     },
     wslink () {
