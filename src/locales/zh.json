@@ -98,7 +98,9 @@
     "supply": "总量",
     "site": "官网",
     "address": "地址",
-    "asset": "资产"
+    "asset": "资产",
+    "change": "涨跌幅",
+    "volume": "数量"
   },
   "desc": {
     "transactions": "笔交易",
@@ -109,6 +111,11 @@
     "totalBlock": "总共{total}个块",
     "listTxn": "{length} transactions from a total of {total} transactions",
     "interval": "在{interval}秒中"
+  },
+  "token": {
+    "tracker": "通证列表",
+    "cap": "Vns通证市值",
+    "totalToken": "总共找到{total}个通证"
   },
   "footer": {
     "powerBy": "Powered by Vns",

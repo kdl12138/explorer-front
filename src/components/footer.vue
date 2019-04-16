@@ -207,4 +207,21 @@ export default {
       }
     }
   }
+  @media (max-width: 480px) {
+    #footer {
+      .donate {
+        a {
+          span {
+            display: inline-block;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            vertical-align: middle;
+          }
+        }
+        
+      }
+    }
+  }
 </style>
