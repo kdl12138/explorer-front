@@ -26,14 +26,18 @@
     "rank": "Rank",
     "more": "More",
     "noData": "No data",
-    "supply": "Circulating Supply"
+    "supply": "Circulating Supply",
+    "uncles": "Uncles",
+    "uncle": "Uncle"
   },
   "nav": {
     "home": "Home",
     "blockchain": "Blockchain",
     "allBlock": "View Blocks",
     "allTxn": "View Txns",
-    "rank": "Rank"
+    "rank": "Rank",
+    "k": "k",
+    "uncles": "View Uncles"
   },
   "tips": {
     "copyAddress": "Copy address to clipboard",
@@ -99,7 +103,9 @@
     "address": "Address",
     "asset": "Asset",
     "change": "Change",
-    "volume": "Volume"
+    "volume": "Volume",
+    "height": "Block Height",
+    "number": "Uncle Number"
   },
   "desc": {
     "transactions": "Transactions",

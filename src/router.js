@@ -67,6 +67,21 @@ export default new Router({
       path: '/404',
       name: 'notFound',
       component: () => import('./views/404.vue')
+    },
+    {
+      path: '/k',
+      name: 'k',
+      component: () => import('./views/k/index.vue')
+    },
+    {
+      path: '/uncles',
+      name: 'uncles',
+      component: () => import('./views/uncles.vue')
+    },
+    {
+      path: '/uncle/:id',
+      name: 'uncle',
+      component: () => import('./views/uncle.vue')
     }
   ]
 })

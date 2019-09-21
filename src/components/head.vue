@@ -20,6 +20,7 @@
               <div class="dropmenu box" v-if="showBlock">
                 <p><router-link to="/blocks">{{$t('nav.allBlock')}}</router-link></p>
                 <p><router-link to="/txs">{{$t('nav.allTxn')}}</router-link></p>
+                <p><router-link to="/uncles">{{$t('nav.uncles')}}</router-link></p>
               </div>
             </li>
             <li>
@@ -31,6 +32,9 @@
                 <p><span @click="changeLang('zh', '中文')">中文</span></p>
                 <p><span @click="changeLang('en', 'English')">English</span></p>
               </div>
+            </li>
+            <li>
+              <router-link to="/k">{{$t('nav.k')}}</router-link>
             </li>
           </ul>
         </nav>

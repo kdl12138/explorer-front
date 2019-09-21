@@ -26,14 +26,17 @@
     "rank": "名次",
     "more": "更多",
     "noData": "暂无数据",
-    "supply": "流通量"
+    "supply": "流通量",
+    "uncles": "叔块"
   },
   "nav": {
     "home": "首页",
     "blockchain": "区块链",
     "allBlock": "查看所有块",
     "allTxn": "查看所有交易",
-    "rank": "排行榜"
+    "rank": "排行榜",
+    "k": "k线图",
+    "uncles": "查看叔块"
   },
   "tips": {
     "copyAddress": "复制到剪贴板",
@@ -86,7 +89,7 @@
     "txfee": "矿工费",
     "txn": "Txn",
     "avgprice": "Avg.GasPrice",
-    "uncles": "叔块", 
+    "uncles": "叔块",
     "miner": "矿工",
     "reward": "奖励",
     "vnsVal": "VnsValue",
@@ -100,7 +103,9 @@
     "address": "地址",
     "asset": "资产",
     "change": "涨跌幅",
-    "volume": "数量"
+    "volume": "数量",
+    "height": "块高度",
+    "number": "叔块数量"
   },
   "desc": {
     "transactions": "笔交易",
